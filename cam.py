@@ -91,6 +91,7 @@ if __name__ == '__main__':
 
     rgb_img = cv2.imread(args.image_path, 1)[:, :, ::-1]
     rgb_img = np.float32(rgb_img) / 255
+    rgb_img = cv2.resize(rgb_image, (224, 224), cv2.INTER_LINEAR)
     input_tensor = preprocess_image(rgb_img,
                                     mean=[0.485, 0.456, 0.406],
                                     std=[0.229, 0.224, 0.225])
